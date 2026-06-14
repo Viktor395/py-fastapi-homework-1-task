@@ -33,8 +33,8 @@ async def get_movies(
     movies_result = await db.execute(movies_query)
     movies = movies_result.scalars().all()
 
-    prev_page = f"/api/v1/theater/movies/?page={page - 1}&per_page={per_page}" if page > 1 else None
-    next_page = f"/api/v1/theater/movies/?page={page + 1}&per_page={per_page}" if page < total_pages else None
+    prev_page = f"/theater/movies/?page={page - 1}&per_page={per_page}" if page > 1 else None
+    next_page = f"/theater/movies/?page={page + 1}&per_page={per_page}" if page < total_pages else None
 
     return {
         "movies": movies,
@@ -59,5 +59,5 @@ async def get_movie_by_id(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Movie with the given ID was not found."
         )
-    
+
     return movie

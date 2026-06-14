@@ -3,9 +3,7 @@ import datetime
 from sqlalchemy import String, Float, Text, DECIMAL, UniqueConstraint, Date
 from sqlalchemy.orm import mapped_column, Mapped
 
-from database.session import Base  
-
-
+from database.session import Base
 
 
 class MovieModel(Base):
